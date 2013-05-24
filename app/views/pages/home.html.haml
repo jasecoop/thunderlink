@@ -1,8 +1,7 @@
 - if user_signed_in?
   %h1 Your Thunderlinks
   = link_to "Sign out", destroy_user_session_path, :method => :delete
-
-
+  = link_to "Add Thunderlink", new_feed_path
 - else
   %h1 This is Thunderlink
   = link_to "Sign up", new_user_registration_path

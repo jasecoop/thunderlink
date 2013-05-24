@@ -1,5 +1,8 @@
 Thunderlink::Application.routes.draw do
 
+  resources :feeds
+
+
   devise_for :users
 
   root :to => 'pages#home'
