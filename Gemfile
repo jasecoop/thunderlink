@@ -39,3 +39,4 @@ gem "pg"
 # gem 'debugger'
 
 gem 'devise'
+gem 'feedzirra'

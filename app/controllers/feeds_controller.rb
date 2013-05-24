@@ -41,6 +41,11 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(params[:feed])
+    feed = Feedzirra::Feed.fetch_and_parse(@feed.feed_url)
+
+    @feed.title         = feed.title
+    @feed.url           = feed.url
+    @feed.last_modified = feed.last_modified
 
     respond_to do |format|
       if @feed.save
