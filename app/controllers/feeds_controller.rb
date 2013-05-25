@@ -40,7 +40,11 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.json
   def create
-    @feed = Feed.new(params[:feed])
+    # @feed = Feed.new(params[:feed])
+    # @feed = user.feed.build(params[:feed])
+
+    @user = current_user
+    @feed = @user.feeds.build(params[:feed])
 
     @feed.fetch_feed!
 

@@ -1,5 +1,7 @@
 class Feed < ActiveRecord::Base
-  attr_accessible :feed_url, :last_modified, :title, :url, :last_visited
+  attr_accessible :feed_id, :feed_url, :last_modified, :title, :url, :last_visited, :user_id
+
+  belongs_to :user
 
   def fetch_feed!
    feed = Feedzirra::Feed.fetch_and_parse(feed_url) # probably want some eror handling here

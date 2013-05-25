@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
 
       t.string :email
-      t.string :username
 
       t.timestamps
     end
