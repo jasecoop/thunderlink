@@ -8,4 +8,10 @@ class Feed < ActiveRecord::Base
    self.last_modified = feed.last_modified
    self #or nil if you like
  end
+
+ def update_visit_date!
+  date = Date.parse(Time.now.to_s)
+  update_attribute(:last_visited, date)
+  self
+ end
 end

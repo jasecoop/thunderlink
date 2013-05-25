@@ -4,10 +4,12 @@ one:
   title: MyString
   url: MyString
   feed_url: MyString
-  last_modified: 2013-05-24 16:58:42
+  last_modified: 2013-05-25 00:53:14
+  last_visited: 2013-05-25 00:53:14
 
 two:
   title: MyString
   url: MyString
   feed_url: MyString
-  last_modified: 2013-05-24 16:58:42
+  last_modified: 2013-05-25 00:53:14
+  last_visited: 2013-05-25 00:53:14

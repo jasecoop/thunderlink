@@ -43,6 +43,7 @@ class FeedsController < ApplicationController
     @feed = Feed.new(params[:feed])
 
     @feed.fetch_feed!
+
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
@@ -74,7 +75,18 @@ class FeedsController < ApplicationController
   # DELETE /feeds/1.json
   def destroy
     @feed = Feed.find(params[:id])
-    @feed.fetch_feed!
+    @feed.destroy
+
+    respond_to do |format|
+      format.html { redirect_to feeds_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def visit_feed
+    @feed = Feed.find(params[:id])
+
+    @feed.update_visit_date!
 
     respond_to do |format|
       format.html { redirect_to feeds_url }

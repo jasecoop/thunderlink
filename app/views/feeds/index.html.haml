@@ -9,6 +9,7 @@
     %th
     %th
     %th
+    %th Last Visited
 
   - @feeds.each do |feed|
     %tr
@@ -19,7 +20,9 @@
       %td= link_to 'Show', feed
       %td= link_to 'Edit', edit_feed_path(feed)
       %td= link_to 'Destroy', feed, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+      / %td= link_to 'Visit feed', visit_feed_path(feed)
+      %td= link_to 'Visit', visit_path(:id => feed.id), :method => :put
+      %td= feed.last_visited
 %br
 
 = link_to 'New Feed', new_feed_path
