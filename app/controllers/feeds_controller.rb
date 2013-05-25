@@ -42,11 +42,7 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(params[:feed])
 
-    feed = Feedzirra::Feed.fetch_and_parse(@feed.feed_url)
-    @feed.title         = feed.title
-    @feed.url           = feed.url
-    @feed.last_modified = feed.last_modified
-
+    @feed.fetch_feed!
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
