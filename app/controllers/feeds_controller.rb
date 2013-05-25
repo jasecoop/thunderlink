@@ -41,8 +41,8 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(params[:feed])
-    feed = Feedzirra::Feed.fetch_and_parse(@feed.feed_url)
 
+    feed = Feedzirra::Feed.fetch_and_parse(@feed.feed_url)
     @feed.title         = feed.title
     @feed.url           = feed.url
     @feed.last_modified = feed.last_modified
@@ -78,7 +78,7 @@ class FeedsController < ApplicationController
   # DELETE /feeds/1.json
   def destroy
     @feed = Feed.find(params[:id])
-    @feed.destroy
+    @feed.fetch_feed!
 
     respond_to do |format|
       format.html { redirect_to feeds_url }
