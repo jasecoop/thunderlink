@@ -2,6 +2,19 @@
   %h1 Your Thunderlinks
   = link_to "Sign out", destroy_user_session_path, :method => :delete
   = link_to "Add Thunderlink", new_feed_path
+
+  %ul
+    - @feeds.each do |feed|
+      %li.feed
+        = link_to(visit_path(:id => feed.id), :method => :put) do
+          .title=feed.title
+          .last_mod
+            Last Modified
+            =feed.last_modified
+          .last_vis
+            Last Visited
+            =feed.last_visited
+
 - else
   %h1 This is Thunderlink
   = link_to "Sign up", new_user_registration_path
