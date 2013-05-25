@@ -10,7 +10,7 @@ class Feed < ActiveRecord::Base
  end
 
  def update_visit_date!
-  date = Date.parse(Time.now.to_s)
+  date = Time.now
   update_attribute(:last_visited, date)
   self
  end
