@@ -9,7 +9,12 @@ class Feed < ActiveRecord::Base
    self.url = feed.url
    self.last_modified = feed.last_modified
    self #or nil if you like
- end
+  end
+
+  def self.check_for_update(feed)
+    fetched_feed = Feedzirra::Feed.fetch_and_parse(feed.feed_url)
+    feed.last_modified   = fetched_feed.last_modified
+  end
 
  def update_visit_date!
   date = Time.now
