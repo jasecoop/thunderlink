@@ -22,6 +22,10 @@ class PagesController < ApplicationController
   def visit_feed
     @feed = Feed.find(params[:id])
     @feed.update_visit_date!
+
+    respond_to do |format|
+      format.html
+    end
   end
 
 end
