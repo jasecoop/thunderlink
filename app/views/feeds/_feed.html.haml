@@ -1,0 +1,6 @@
+- if temp = 'hot'
+  %li.feed.hot[feed]
+    = render :partial => 'feeds/feed_link', :feed => feed
+- else
+  %li.feed.cold[feed]
+    = render :partial => 'feeds/feed_link', :feed => feed

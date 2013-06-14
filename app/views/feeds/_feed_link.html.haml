@@ -1,0 +1,8 @@
+= link_to feed.url, :target => '_blank', :data => {:last_visited => feed.last_visited.to_i, :last_modified => feed.last_modified.to_i, :id => feed.id} do
+  .title=feed.title
+  .last_mod
+    Last Modified
+    =feed.last_modified
+  .last_vis
+    Last Visited
+    =feed.last_visited

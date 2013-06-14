@@ -2,20 +2,27 @@
   %h1 Your Thunderlinks
   = link_to "Sign out", destroy_user_session_path, :method => :delete
   = link_to "Add Thunderlink", new_feed_path
+  = link_to "Foo", "#", :class => 'test'
 
-  %ul
+  %ol.feeds.feeds_hot
+    - @feeds_hot.each do |feed|
+      %li.feed.hot[feed]
+        = render :partial => 'feeds/feed_link', :locals => {:feed => feed}
+  / %ol.feeds.feeds_cold
+  /   - @feeds.each do |feed|
+  /     - if feed.last_modified.to_i < feed.last_visited.to_i
+  /       %li.feed.cold[feed]
+  /         = render :partial => 'feeds/feed_link', :locals => {:feed => feed}
+
+
+  %ol.feeds.feeds_hot
     - @feeds.each do |feed|
-      %li.feed
-        = link_to(visit_path(:id => feed.id), :method => :put) do
-          .title=feed.title
-          .last_mod
-            Last Modified
-            =feed.last_modified
-          .last_vis
-            Last Visited
-            =feed.last_visited
-
+      %li.feed.hot[feed]
+        = render :partial => 'feeds/feed_link', :locals => {:feed => feed}
 - else
   %h1 This is Thunderlink
   = link_to "Sign up", new_user_registration_path
   = link_to "Sign in", new_user_session_path
+
+
+/ = link_to(visit_path(:id => feed.id), :method => :put, :target => '_blank', :remote => true) do

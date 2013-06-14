@@ -1,12 +1,14 @@
 Thunderlink::Application.routes.draw do
 
-  resources :feeds
+  resources :feeds, :only => [:index, :create, :new, :edit, :update, :destroy]
+  match "/feeds/:id" => "pages#visit_feed"
 
   devise_for :users
 
   root :to => 'pages#home'
 
-  match "/feeds" => "feeds#visit_feed", :as => :visit
+  # match "/feeds" => "pages#visit_feed", :as => :visit
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
