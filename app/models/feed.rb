@@ -22,7 +22,10 @@ class Feed < ActiveRecord::Base
     fetched_feed = Feedzirra::Feed.fetch_and_parse(feed.feed_url)
 
     entry = fetched_feed.entries.first
-    feed.last_modified = entry.published
+
+    date = entry.published
+
+    feed.last_modified = date
 
   end
 
