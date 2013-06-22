@@ -5,9 +5,9 @@
 $(document).ready ->
 
   #Create hot list
-  $('.feeds').append '<ul class="hot-feeds"></ul>'
+  $('.feeds').append '<ol class="hot-feeds"></ul>'
   #Create cold list
-  $('.feeds').append '<ul class="cold-feeds"></ul>'
+  $('.feeds').append '<ol class="cold-feeds"></ul>'
 
   $.each gon.feed, ->
 
@@ -19,9 +19,13 @@ $(document).ready ->
 
 
     if last_modified > last_visited
-      $('ul.hot-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+' Last Mod:'+last_modified+' Last Vis:'+last_visited+'</a></li>'
+      $('ol.hot-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+' Last Mod:'+last_modified+' Last Vis:'+last_visited+'</a></li>'
     else
-      $('ul.cold-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+' Last Mod:'+last_modified+' Last Vis:'+last_visited+'</a></li>'
+      $('ol.cold-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+' Last Mod:'+last_modified+' Last Vis:'+last_visited+'</a></li>'
+
+  #Flip the order of hot list
+  $('ol.hot-feeds').children().each ->
+    $('ol.hot-feeds').prepend this
 
   $("a").click (e) ->
       e.preventDefault
