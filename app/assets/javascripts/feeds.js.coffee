@@ -37,3 +37,22 @@ $(document).ready ->
     # timeDiff = Math.abs(last_modified_date.getTime() - last_visitied_date.getTime())
     # diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24))
     # alert diffDays
+
+  #Create hot list
+  $('.feeds').append '<ul class="hot"></ul>'
+  #Create cold list
+  $('.feeds').append '<ul class="cold"></ul>'
+
+  $.each gon.feed, ->
+
+    title          = this.title
+    url            = this.url
+    last_modified  = new Date(this.last_modified)
+    last_visited   = new Date(this.last_visited)
+
+
+    if last_modified > last_visited
+      $('ul.hot').append '<li><a href="'+url+'">' + title + '</a></li>'
+    else
+      $('ul.cold').append '<li><a href="'+url+'">' + title + '</a></li>'
+

@@ -7,6 +7,8 @@ class PagesController < ApplicationController
     @feeds.each do |feed|
       Feed.check_for_update(feed)
     end
+
+    gon.feed = @feeds
   end
 
 
