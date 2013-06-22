@@ -20,6 +20,7 @@ $(document).ready ->
     $(this).attr "data-last-visited", "update"
 
 
+  # Determine if Feed is hot or cold
   $('li.feed a').each ->
 
     last_visited  = $(this).attr "data-last-visited"

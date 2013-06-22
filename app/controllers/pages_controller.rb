@@ -4,17 +4,9 @@ class PagesController < ApplicationController
     @user = current_user
     @feeds = @user.feeds
 
-    last_visit = Feed.order("last_visited").last.last_visited
-
-    @feeds_hot = Feed.where("last_modified > ?", last_visit)
-
-
-    @feeds_cold = @user.feeds.order('DATE(last_visited)')
-
     @feeds.each do |feed|
       Feed.check_for_update(feed)
     end
-
   end
 
 

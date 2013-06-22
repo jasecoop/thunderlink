@@ -5,6 +5,7 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :url
       t.string :feed_url
       t.datetime :last_modified
+      t.datetime :last_visited
 
       t.timestamps
     end
