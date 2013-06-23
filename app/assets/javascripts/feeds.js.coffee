@@ -19,9 +19,9 @@ $(document).ready ->
 
 
     if last_modified > last_visited
-      $('ol.hot-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+'</a></li>'
+      $('ol.hot-feeds').append '<li class="feed" id="feed-'+id+'"><a class="thunderlink" href="'+url+'" target="_blank"><span class="light"></span>'+title+'</a></li>'
     else
-      $('ol.cold-feeds').append '<li class="feed" id="feed-'+id+'"><a href="'+url+'" target="_blank">'+title+'</a></li>'
+      $('ol.cold-feeds').append '<li class="feed" id="feed-'+id+'"><a class="thunderlink" href="'+url+'" target="_blank"><span class="light"></span>'+title+'</a></li>'
 
   #Flip the order of hot list
   $('ol.hot-feeds').children().each ->
@@ -42,7 +42,6 @@ $(document).ready ->
 
       $(this).parent().addClass "animated"
       $(this).parent().addClass "fadeInUp"
-
       $(this).parent().delay(2000).appendTo('ol.cold-feeds')
 
       # Runs controller to update last_view
@@ -50,5 +49,12 @@ $(document).ready ->
         type: "get"
         url: "/feeds/" + feedId
 
+# counter = 0
+# setInterval (->
 
+#   $('body').attr('data-colour', 'colour-' + counter)
+#   counter++
 
+#   if counter == 3
+#     counter = 0
+# ), 10000

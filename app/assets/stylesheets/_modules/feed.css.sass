@@ -4,18 +4,38 @@
   padding: 0
 
 li.feed
-  margin-bottom: .5em
-  a
+  margin-bottom: .9em
+  width: 100%
+  +box-shadow(.4em .4em 0 0 $feed-shadow)
+  +border-radius(4px)
+  a.thunderlink
     display: block
-    width: 100%
     text-decoration: none
-    background: rgba(00,00,00,.1)
-    padding: .5em
-    +border-radius(2px)
+    padding: 1.5em
 
-    &:hover
-      background: rgba(00,00,00,.3)
+    span.light
+      display: inline-block
+      width: .7em
+      height: .7em
+      +border-radius(20px)
+      margin-right: 1em
 
-.cold-feeds
-  li.feed
-    opacity: .5
+// Hot styling
+.hot-feeds li.feed
+  background: $feed-bg-hot
+  &:hover
+    background: $feed-bg-hot-hover
+  a.thunderlink
+    color: $feed-type-hot
+    span.light
+      background: $feed-light-hot
+
+// Cold styling
+.cold-feeds li.feed
+  background: $feed-bg-cold
+  &:hover
+    background: $feed-bg-cold-hover
+  a.thunderlink
+    color: $feed-type-cold
+    span.light
+      background: $feed-light-cold

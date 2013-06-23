@@ -19,11 +19,15 @@
 
 @import "_generic/_defaults/_colours";
 @import "_generic/_defaults/_grid";
+@import "_generic/_defaults/_type";
 
 @import "_generic/animate";
 @import "_generic/normalize";
 @import "_generic/mixins";
 @import "_generic/reset";
+
+/*Base*/
+@import "_base/typography";
 
 /*Layout*/
 @import "_layout/layout";
