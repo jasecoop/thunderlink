@@ -2,6 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+feedLi = (id, title, url) ->
+  '<li class="feed" id="feed-'+id+'">
+    <a class="thunderlink" href="'+url+'" target="_blank">
+      <span class="light"></span>
+      <span class="title">'+title+'</span>
+      <span class="delete"></span>
+    </a>
+  </li>'
+
 $(document).ready ->
 
   #Create hot list
@@ -19,9 +28,9 @@ $(document).ready ->
 
 
     if last_modified > last_visited
-      $('ol.hot-feeds').append '<li class="feed" id="feed-'+id+'"><a class="thunderlink" href="'+url+'" target="_blank"><span class="light"></span>'+title+'</a></li>'
+      $('ol.hot-feeds').append feedLi(id,title,url)
     else
-      $('ol.cold-feeds').append '<li class="feed" id="feed-'+id+'"><a class="thunderlink" href="'+url+'" target="_blank"><span class="light"></span>'+title+'</a></li>'
+      $('ol.cold-feeds').append feedLi(id,title,url)
 
   #Flip the order of hot list
   $('ol.hot-feeds').children().each ->
