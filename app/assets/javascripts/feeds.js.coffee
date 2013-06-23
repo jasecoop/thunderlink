@@ -40,7 +40,10 @@ $(document).ready ->
           break
         i++
 
-      $(this).parent().appendTo('ol.cold-feeds')
+      $(this).parent().addClass "animated"
+      $(this).parent().addClass "fadeInUp"
+
+      $(this).parent().delay(2000).appendTo('ol.cold-feeds')
 
       # Runs controller to update last_view
       $.ajax
