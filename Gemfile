@@ -24,6 +24,9 @@ gem "haml-rails", ">= 0.3.5", :group => :development
 gem "pg"
 gem "turbolinks"
 gem "gon"
+gem 'compass', '>= 0.12.2'
+gem 'compass-rails', '>= 1.0.3'
+gem 'susy'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
