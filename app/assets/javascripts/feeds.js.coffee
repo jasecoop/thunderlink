@@ -27,7 +27,7 @@ $(document).ready ->
   $('ol.hot-feeds').children().each ->
     $('ol.hot-feeds').prepend this
 
-  $("a").click (e) ->
+  $(".feeds a").click (e) ->
       e.preventDefault
 
       feedId = parseInt $(this).parent().attr('id').replace('feed-','')
@@ -49,6 +49,17 @@ $(document).ready ->
         type: "get"
         url: "/feeds/" + feedId
 
+  #Load new form
+  $("a.add_thunderlink").click ->
+    url = $(this).attr("href")
+    $.get url, (data) ->
+      $('.feeds').prepend(data)
+
+    false
+
+
+hideAddThunderlinkForm = ->
+  $(".remote-form").remove()
 # counter = 0
 # setInterval (->
 

@@ -1,8 +1,8 @@
 Thunderlink::Application.routes.draw do
 
   resources :feeds, :only => [:index, :create, :new, :edit, :update, :destroy]
-
-  match "/feeds/:id"       => "index#visit_feed"
+  match "/feeds/:id"       => "feeds#visit_feed"
+  match "/add_thunderlink" => "feeds#new"
 
   devise_for :users
 

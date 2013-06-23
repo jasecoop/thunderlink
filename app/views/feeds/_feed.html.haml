@@ -1,6 +1,4 @@
-- if temp = 'hot'
-  %li.feed.hot[feed]
-    = render :partial => 'feeds/feed_link', :feed => feed
-- else
-  %li.feed.cold[feed]
-    = render :partial => 'feeds/feed_link', :feed => feed
+%li.feed
+  = link_to(feed.url, :class => 'thunderlink', :target => '_blank') do
+    %span.light
+    = feed.title

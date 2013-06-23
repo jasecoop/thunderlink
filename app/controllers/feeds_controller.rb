@@ -27,11 +27,7 @@ class FeedsController < ApplicationController
   # GET /feeds/new.json
   def new
     @feed = Feed.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @feed }
-    end
+    render :partial => 'form', :locals => {:feed => @feed}
   end
 
   # GET /feeds/1/edit
@@ -42,21 +38,15 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.json
   def create
-    # @feed = Feed.new(params[:feed])
-    # @feed = user.feed.build(params[:feed])
-
     @user = current_user
     @feed = @user.feeds.build(params[:feed])
-
     @feed.fetch_feed!
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to "/", notice: 'Feed was successfully created.' }
-        format.json { render json: @feed, status: :created, location: @feed }
+        format.js
       else
-        format.html { render action: "new" }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+        format.js { render :partial => 'error' }
       end
     end
   end
