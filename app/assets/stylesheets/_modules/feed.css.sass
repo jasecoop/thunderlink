@@ -8,6 +8,7 @@ li.feed
   width: 100%
   +box-shadow(.4em .4em 0 0 $feed-shadow)
   +border-radius(.3em)
+  position: relative
   a.thunderlink
     display: block
     text-decoration: none
@@ -19,6 +20,21 @@ li.feed
       height: .7em
       +border-radius(20px)
       margin-right: 1em
+
+// Layout
+.feeds.feeds-view
+  a.delete
+    display: none
+
+.feeds.feeds-settings
+  a.delete
+    display: block
+    position: absolute
+    right: 0
+    top: 0
+    width: 40px
+    height: 40px
+    background: red
 
 // Hot styling
 .hot-feeds li.feed

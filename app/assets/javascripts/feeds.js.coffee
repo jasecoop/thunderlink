@@ -7,8 +7,8 @@ feedLi = (id, title, url) ->
     <a class="thunderlink" href="'+url+'" target="_blank">
       <span class="light"></span>
       <span class="title">'+title+'</span>
-      <span class="delete"></span>
     </a>
+    <a class="delete"></a>
   </li>'
 
 $(document).ready ->
