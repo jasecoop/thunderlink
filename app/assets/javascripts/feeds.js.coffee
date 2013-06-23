@@ -40,14 +40,12 @@ $(document).ready ->
           break
         i++
 
+      $(this).parent().appendTo('ol.cold-feeds')
 
       # Runs controller to update last_view
       $.ajax
         type: "get"
         url: "/feeds/" + feedId
 
-  #     dataType: "script"
-  #     beforeSend: ->
-  #       alert "sdfsf"
 
 
