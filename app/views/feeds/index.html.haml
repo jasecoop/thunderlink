@@ -1,28 +1,8 @@
-%h1 Listing feeds
+= link_to "Add Thunderlink", new_feed_path
 
-%table
-  %tr
-    %th Title
-    %th Url
-    %th Feed url
-    %th Last modified
-    %th
-    %th
-    %th
-    %th Last Visited
+= link_to "Add Thunderlink here", add_thunderlink_path, :remote => true
 
-  - @feeds.each do |feed|
-    %tr
-      %td= feed.title
-      %td= feed.url
-      %td= feed.feed_url
-      %td= feed.last_modified
-      %td= link_to 'Show', feed
-      %td= link_to 'Edit', edit_feed_path(feed)
-      %td= link_to 'Destroy', feed, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      / %td= link_to 'Visit feed', visit_feed_path(feed)
-      %td= link_to 'Visit', visit_path(:id => feed.id), :method => :put
-      %td= feed.last_visited
-%br
+
+.feeds
 
 = link_to 'New Feed', new_feed_path

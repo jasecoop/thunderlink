@@ -3,6 +3,9 @@
   = link_to "Sign out", destroy_user_session_path, :method => :delete
   = link_to "Add Thunderlink", new_feed_path
 
+  = link_to "Add Thunderlink here", add_thunderlink_path, :remote => true
+
+  = render "feeds/new_feed"
   .feeds
 
 - else

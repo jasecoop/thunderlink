@@ -2,12 +2,14 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all
+    @user = current_user
+    @feeds = @user.feeds
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @feeds }
+    @feeds.each do |feed|
+      Feed.check_for_update(feed)
     end
+
+    gon.feed = @feeds
   end
 
   # GET /feeds/1
@@ -50,7 +52,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        format.html { redirect_to "/", notice: 'Feed was successfully created.' }
         format.json { render json: @feed, status: :created, location: @feed }
       else
         format.html { render action: "new" }
@@ -89,12 +91,10 @@ class FeedsController < ApplicationController
 
   def visit_feed
     @feed = Feed.find(params[:id])
-
     @feed.update_visit_date!
 
     respond_to do |format|
-      format.html { redirect_to feeds_url }
-      format.json { head :no_content }
+      format.html
     end
   end
 end

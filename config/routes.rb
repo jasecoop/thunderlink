@@ -1,9 +1,14 @@
 Thunderlink::Application.routes.draw do
 
   resources :feeds, :only => [:index, :create, :new, :edit, :update, :destroy]
-  match "/feeds/:id" => "pages#visit_feed"
+
+  match "/feeds/:id"       => "index#visit_feed"
 
   devise_for :users
+
+  authenticated :user do
+    root :to => "feeds#index"
+  end
 
   root :to => 'pages#home'
 
