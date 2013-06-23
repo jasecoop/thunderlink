@@ -1,0 +1,21 @@
+.feeds ol
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+li.feed
+  margin-bottom: .5em
+  a
+    display: block
+    width: 100%
+    text-decoration: none
+    background: rgba(00,00,00,.1)
+    padding: .5em
+    +border-radius(2px)
+
+    &:hover
+      background: rgba(00,00,00,.3)
+
+.cold-feeds
+  li.feed
+    opacity: .5
