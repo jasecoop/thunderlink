@@ -20,6 +20,7 @@
 @import "_generic/_defaults/_colours";
 @import "_generic/_defaults/_grid";
 @import "_generic/_defaults/_type";
+@import "_generic/_defaults/_feed";
 
 @import "_generic/animate";
 @import "_generic/normalize";
@@ -34,5 +35,7 @@
 
 /*Modules*/
 @import "_modules/feed";
+@import "_modules/feed-add";
+@import "_modules/nav";
 
 

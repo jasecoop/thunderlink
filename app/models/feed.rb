@@ -20,13 +20,12 @@ class Feed < ActiveRecord::Base
   def self.check_for_update(feed)
 
     fetched_feed = Feedzirra::Feed.fetch_and_parse(feed.feed_url)
-
     entry = fetched_feed.entries.first
-
     date = entry.published
 
-    feed.last_modified = date
-
+    if date > feed.last_visited
+      feed.last_modified = date
+    end
   end
 
  def update_visit_date!

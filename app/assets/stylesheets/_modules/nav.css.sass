@@ -1,0 +1,24 @@
+nav
+  &.nav-app
+    padding: 2em 0
+    li
+      display: block
+      @include span-columns(1,10)
+      &:last-child
+        @include span-columns(1 omega,10)
+      &:first-child
+        @include pre(8)
+
+    li a
+      display: block
+      width: 74px
+      height: 73px
+      float: right
+    li.settings a
+      background: url('settings.png') no-repeat left center
+      &:hover
+        background-position: -73px 0
+    li.add a
+      background: url('add.png') no-repeat left center
+      &:hover
+        background-position: -73px 0

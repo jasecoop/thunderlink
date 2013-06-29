@@ -1,0 +1,20 @@
+$feed-padding : 1.4em
+
+@mixin feed
+  width: 100%
+  position: relative
+  margin-bottom: .3em
+  @include border-radius(3px)
+  overflow: hidden
+  @include box-shadow(0px 4px 0 0px rgba(0, 0, 0, 0.08))
+  &:hover
+    @include box-shadow(0px 4px 0 0px rgba(0, 0, 0, 0.08), 0px 0px 0 2px rgba(0, 0, 0, .2))
+
+@mixin feed-action($bgcolor)
+  display: block
+  position: absolute
+  right: 0
+  top: 0
+  width: 40px
+  height: 40px
+  background: $bgcolor

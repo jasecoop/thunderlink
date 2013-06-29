@@ -1,5 +1,12 @@
 / = link_to "Add Thunderlink", new_feed_path
-= link_to "Add Thunderlink", add_thunderlink_path, :class => 'add_thunderlink'
+%header
+
+  %nav.nav-app
+    %ul
+      %li.settings
+        %a{:href => '/'}
+      %li.add
+        = link_to "", add_thunderlink_path, :class => 'add_thunderlink'
 
 .feeds.feeds-view
 

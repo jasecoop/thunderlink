@@ -4,22 +4,22 @@
   padding: 0
 
 li.feed
-  margin-bottom: .9em
-  width: 100%
-  +box-shadow(.4em .4em 0 0 $feed-shadow)
-  +border-radius(.3em)
-  position: relative
-  a.thunderlink
-    display: block
-    text-decoration: none
-    padding: 1.4em
+  +feed
 
-    span.light
-      display: inline-block
-      width: .7em
-      height: .7em
-      +border-radius(20px)
-      margin-right: 1em
+// Elements inside a feed
+a.thunderlink
+  display: block
+  text-decoration: none
+  padding: $feed-padding
+
+span.light
+  display: inline-block
+  width: .7em
+  height: .7em
+  +border-radius(20px)
+  margin-right: 1em
+  background: $feed-light-cold // default
+
 
 // Layout
 .feeds.feeds-view
@@ -27,14 +27,9 @@ li.feed
     display: none
 
 .feeds.feeds-settings
-  a.delete
-    display: block
-    position: absolute
-    right: 0
-    top: 0
-    width: 40px
-    height: 40px
-    background: red
+  a.feed-action
+    &.delete
+      +feed-action(red)
 
 // Hot styling
 .hot-feeds li.feed

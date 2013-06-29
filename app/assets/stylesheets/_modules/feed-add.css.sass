@@ -1,0 +1,29 @@
+.feed-add
+  +feed
+  background: $feed-bg-add
+  @include box-shadow(0px 4px 0 0px rgba(0, 0, 0, 0.08), 0px 0px 0 2px rgba(0, 0, 0, .2))
+
+  // Layout
+  .content
+    padding: $feed-padding 0
+    @include span-columns(8,10)
+    span.light
+      margin-left: $feed-padding
+  .action
+    @include span-columns(2 omega,10)
+
+
+  span.light
+    background: $feed-light-add
+  .field
+    display: inline
+    input
+      border: none
+  .action
+    input
+      background: $feed-light-add
+      border: none
+      width: 73px
+      height: 73px
+      float: right
+      display: block

@@ -8,7 +8,7 @@ feedLi = (id, title, url) ->
       <span class="light"></span>
       <span class="title">'+title+'</span>
     </a>
-    <a class="delete"></a>
+    <a class="feed-action delete"></a>
   </li>'
 
 $(document).ready ->
@@ -40,6 +40,8 @@ $(document).ready ->
       e.preventDefault
 
       feedId = parseInt $(this).parent().attr('id').replace('feed-','')
+
+      # $(this).parent().addClass "fadeOutDown"
 
       ## Find feed in gon array
       i = 0
