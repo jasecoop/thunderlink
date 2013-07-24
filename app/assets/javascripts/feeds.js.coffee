@@ -62,11 +62,18 @@ $(document).ready ->
 
   #Load new form
   $("a.add_thunderlink").click ->
-    url = $(this).attr("href")
-    $.get url, (data) ->
-      $('.feeds').prepend(data)
 
-    false
+    if $(".feed-add").is(":visible")
+      $(".feed-add").remove()
+      $(this).removeClass('active')
+      false
+    else
+      $(this).addClass('active')
+      url = $(this).attr("href")
+      $.get url, (data) ->
+        $('.feeds').prepend(data)
+
+      false
 
 
 hideAddThunderlinkForm = ->
